@@ -1,296 +1,230 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>منصة تحيين الترقيات</title>
-  <style>
-    /* استيلز السابقة */
-    @font-face{font-family:'MohammadHead';src:local('Mohammad Head'),url('https://fonts.gstatic.com/s/mohammadhead/v12/0QI6MX1D_JOuGQ.ttf') format('truetype');}
-    @font-face{font-family:'BaradaReqa';src:local('Barada Reqa'),url('https://fonts.gstatic.com/s/baradareqa/v12/0QI6MX1D_JOuGQ.ttf') format('truetype');}
-    @font-face{font-family:'MohammadBoldArt1';src:local('Mohammad Bold Art 1'),url('https://fonts.gstatic.com/s/mohammadboldart/v12/0QI6MX1D_JOuGQ.ttf') format('truetype');}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>منصة تحيين الترقيات 2026-2027</title>
+<style>
+/* الخطوط الأصلية */
+@font-face{font-family:'MohammadHead';src:local('Mohammad Head'),local('MohammadHead'),url('MohammadHead.woff2') format('woff2'),url('MohammadHead.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'BaradaReqa';src:local('Barada Reqa'),local('BaradaReqa'),local('Barada Reqa Regular'),url('BaradaReqa.woff2') format('woff2'),url('BaradaReqa.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'MohammadBoldArt1';src:local('Mohammad Bold Art 1'),local('MohammadBoldArt1'),local('Mohammad Bold Art'),url('MohammadBoldArt1.woff2') format('woff2'),url('MohammadBoldArt1.ttf') format('truetype');font-weight:100 900;font-display:swap}
 
-    :root {
-      --primary: #5b2a86;
-      --accent: #e2b53a;
-      --bg-color: #43206b;
-      --fh: 'MohammadHead', 'Amiri', serif;
-      --fc: 'MohammadBoldArt1', 'MohammadHead', Tahoma, Arial, sans-serif;
-      --fb: 'BaradaReqa', 'Aref Ruqaa Ink', 'Amiri', serif;
-    }
+:root{
+    --primary:#5b2a86; /* البنفسجي */
+    --accent:#d21034;  /* الأحمر للتفاعل */
+    --brown:#6a2c91;
+    --fh:'MohammadHead','Katibeh','Amiri',serif;
+    --fc:'MohammadBoldArt1','MohammadHead',Tahoma,Arial,sans-serif;
+    --fb:'BaradaReqa','Aref Ruqaa Ink','Katibeh','Amiri',serif;
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 24px 14px;
-      background: var(--bg-color);
-      color: #333;
-      font-family: var(--fb);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:24px 14px;background:#43206b;color:#333;font-family:var(--fb);display:flex;flex-direction:column;align-items:center}
+.wrap{width:min(1040px,100%);display:flex;flex-direction:column;align-items:center}
 
-    /* استيلز العناصر الأخرى كما في الكود السابق */
-    .blackboard, .seal, .badge, .title-box, .card, .f, .btn-submit, .data-card, .data-table, .act-center, footer {
-      /* استيلز من الكود السابق */
-    }
+/* ===== السبّورة المميزة ===== */
+.blackboard{position:relative;isolation:isolate;width:100%;margin-bottom:36px;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#fffde9;text-align:center;border:13px solid #b78ae0;border-radius:10px;background-color:#0a0a0a;
+  background-image:radial-gradient(ellipse at 20% 30%,#ffffff0b 0 1px,transparent 2px),radial-gradient(ellipse at 70% 65%,#ffffff0a 0 1px,transparent 2px),repeating-linear-gradient(2deg,#ffffff03 0 1px,transparent 1px 5px),linear-gradient(145deg,#1c1c1c,#050505 70%,#141414);
+  box-shadow:inset 0 0 0 3px #ffffff14,inset 0 0 28px #0009,0 12px 24px #0008}
+.blackboard::after{content:"";position:absolute;z-index:0;bottom:-22px;left:10%;width:80%;height:12px;border:2px solid #4a2a70;border-radius:0 0 7px 7px;background:linear-gradient(#a982d6,#5b3a8a);box-shadow:0 5px 7px #0005}
 
-    .btn-export {
-      background: #27ae60;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-family: var(--fc);
-      font-size: 18px;
-      cursor: pointer;
-      margin-top: 20px;
-      width: 100%;
-      transition: all 0.3s;
-    }
+.seal{flex:0 0 150px;width:150px;height:150px;filter:drop-shadow(0 6px 10px #000a)}
+.seal img{display:block;width:100%;height:100%;object-fit:contain}
 
-    .btn-export:hover {
-      background: #219653;
-      transform: translateY(-2px);
-    }
+.badge{--d:150px;position:relative;flex:0 0 var(--d);width:var(--d);height:var(--d);padding:calc(var(--d)*.055);border-radius:50%;direction:ltr;
+  background:conic-gradient(from 210deg,#fff3b4,#e2b53a 18%,#a77408 38%,#f6dc7a 56%,#c9971f 76%,#fff0a8 100%);
+  box-shadow:0 6px 12px #000a,0 0 14px #ffd54a55,inset 0 0 0 2px #fff6c880}
+.badge-inner{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 2px #8a5e0a,inset 0 0 10px #0006}
+.badge-inner img{display:block;width:100%;height:100%;object-fit:cover;background:#fff}
 
-    .message {
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 4px;
-      text-align: center;
-      font-weight: bold;
-    }
+.title-box{flex:1;min-width:0}
+h1{margin:0;color:#fff;font-family:var(--fh);font-size:clamp(30px,5.5vw,55px);font-weight:400;line-height:1.4;
+  text-shadow:0 0 4px #fff59d,0 0 10px #ffeb3b,0 0 20px #ffe100,0 0 34px #ffc400;animation:glow 3.2s ease-in-out infinite}
+@keyframes glow{0%,100%{text-shadow:0 0 4px #fff59d,0 0 10px #ffeb3b,0 0 20px #ffe100,0 0 34px #ffc400}50%{text-shadow:0 0 5px #fff59d,0 0 14px #ffeb3b,0 0 28px #ffe100,0 0 48px #ffc400}}
+.sub-title{margin:8px 0 0;color:#ffeb3b;font-family:var(--fb);font-size:clamp(16px,2.5vw,20px);font-weight:400}
 
-    .success {
-      background-color: rgba(39, 174, 96, 0.2);
-      color: #27ae60;
-    }
+/* ===== البطاقات والحقول ===== */
+.card{width:100%;max-width:850px;margin-bottom:22px;padding:25px;background:#fff;border-radius:7px;box-shadow:0 4px 10px #0003}
+h2{margin:-25px -25px 15px -25px;padding:12px;text-align:center;color:#fff;background:var(--primary);border-radius:7px 7px 3px 3px;font-family:var(--fh);font-size:26px;font-weight:400;transition:all 0.3s}
+h2:hover{background:var(--accent);transform:translateY(-2px)}
 
-    .error {
-      background-color: rgba(231, 76, 60, 0.2);
-      color: #e74c3c;
-    }
-  </style>
+.f{margin-bottom:18px}
+.f label{display:block;margin-bottom:8px;color:var(--primary);font-family:var(--fh);font-size:22px}
+input, select{width:100%;min-height:46px;padding:10px;border:1px solid #bdc3c7;border-radius:6px;font-family:var(--fc);font-size:18px;color:var(--brown);font-weight:bold}
+input:focus, select:focus{border-color:var(--primary);outline:none;box-shadow:0 0 5px rgba(91,42,134,0.3)}
+
+/* ===== زر الإرسال ===== */
+.btn-submit{width:100%;padding:15px;border:none;border-radius:6px;background:var(--primary);color:#fff;font-family:var(--fh);font-size:28px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 6px #0002}
+.btn-submit:hover:not(:disabled){background:var(--accent);transform:translateY(-2px);box-shadow:0 6px 12px rgba(210,16,52,0.3)}
+.btn-submit:disabled{opacity:0.6;cursor:wait}
+
+/* ===== الجدول التفاعلي ===== */
+.data-card{width:100%;max-width:1100px;margin-bottom:22px;padding:25px;background:#fff;border-radius:7px;box-shadow:0 4px 10px #0003}
+.table-wrap{overflow-x:auto;margin-top:15px;max-height:500px;border:1px solid #ddd3ea;border-radius:4px}
+.data-table{width:100%;border-collapse:collapse;font-size:16px;min-width:600px}
+.data-table th{position:sticky;top:0;background:var(--primary);color:#fff;padding:12px;font-family:var(--fh);text-align:center}
+.data-table td{padding:10px;border-top:1px solid #eee;text-align:center;font-weight:bold;color:var(--brown)}
+.data-table tbody tr:nth-child(even){background:#f6f1fb}
+.data-table tbody tr:hover{background:#fdecee}
+
+.msg{margin-top:15px;text-align:center;font-weight:bold;font-size:18px}
+.msg.success{color:#27ae60}
+.msg.error{color:#e74c3c}
+
+footer{width:100%;margin-top:20px;text-align:center;color:#ffeb3b;font-family:var(--fb);font-size:19px;line-height:1.6}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- هيدر السبورة -->
-    <header class="blackboard">
-      <!-- استيلز الهيدر كما في الكود السابق -->
-      <div class="seal">
-        <img src="data:image/webp;base64,UklGRvIkAQBXRUJQVlA4WAoAAAAQAAAAowEAowEAQUxQSPAVAAAB8If/v7o5rbZ9vmutc1wyk5nIJMHaRkgIwZ1NcQkS6klxKHX34mz0OFxqaAJJqSCFhLq3yMZh+964xSaG7cz6ru/nj5mMnrJ+W64rIiYAVbIAgIjHljs6es67fOEFK1b89ONXPfLw8gdWrFixYvmK6xd+aPIHF35s0cKLPvn9UxcuXLTwmhXLl6+4ZeHChfPGdWBgH0IITgCIiCAruxACAGz7ofZDzjx92YNrVq3nMK/nMG9eveZvS5ddP7e9HQO74JGPRXwIjePRf9yhi9f1rucWzXRAY9JBJiZVVUtMOngObOvX33/n948/vqcNQH3z+Ene5R3pJ17Qv2vKqT9a9mgv+yfVqGbGYTYOs5lpjJFbfHPt8u8v2K5r6lQ0TQjBSaZxAMQHAN2HHHvO0uffYv+UzIxj2sw0xhjZf8PqH37xuGnoH4KT/CJAZz2A5kMvXckBNcZkLJ9mGiP7v7n8+8ft3AAAbq+GjCIuBMzba+uO1o/f8RLJpDEmYzk206js/9Lt5+7cAsAFB0CyhzgvAJpvfvzVlatJJjWWedOoJGmr7zqsFUBLm0fOFC/OA9hnr/k/fIX9UzRWRksxkuSq5eftvE0zWuu9yrsNkD/FY/N0xI20w==" alt="ختم المفتشية">
+
+<div class="wrap">
+  <header class="blackboard">
+    <div class="seal"><img src="data:image/webp;base64,UklGRvIkAQBXRUJQVlA4WAoAAAAQAAAAowEAowEAQUxQSPAVAAAB8If/v7o5rbZ9vmutc1wyk5nIJMHaRkgIwZ1NcQkS6klxKHX34mz0OFxqaAJJqSCFhLq3yMZh+964xSaG7cz6ru/nj5mMnrJ+W64rIiYAVbIAgIjHljs6es67fOEFK1b89ONXPfLw8gdWrFixYvmK6xd+aPIHF35s0cKLPvn9UxcuXLTwmhXLl6+4ZeHChfPGdWBgH0IITgCIiCAruxACAGz7ofZDzjx92YNrVq3nMK/nMG9eveZvS5ddP7e9HQO74JGPRXwIjePRf9yhi9f1rucWzXRAY9JBJiZVVUtMOngObOvX33/n948/vqcNQH3z+Ene5R3pJ17Qv2vKqT9a9mgv+yfVqGbGYTYOs5lpjJFbfHPt8u8v2K5r6lQ0TQjBSaZxAMQHAN2HHHvO0uffYv+UzIxj2sw0xhjZf8PqH37xuGnoH4KT/CJAZz2A5kMvXckBNcZkLJ9mGiP7v7n8+8ft3AAAbq+GjCIuBMzba+uO1o/f8RLJpDEmYzk206js/9Lt5+7cAsAFB0CyhzgvAJpvfvzVlatJJjWWedOoJGmr7zqsFUBLm0fOFC/OA9hnr/k/fIX9UzRWRksxkuSq5eftvE0zWuu9yrsNkD/FY/N0xI20w==" alt="ختم المفتشية"></div>
+
+    <div class="title-box">
+      <h1>منصة تحيين الترقيات</h1>
+      <div class="sub-title">مفتشية التعليم الابتدائي لدائرة حد الصحاري - المقاطعة الأولى</div>
+    </div>
+
+    <div class="badge">
+      <div class="badge-inner"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAIAAAAP3aGbAAEAAElEQVR42uxddXwUV9c+946tZjfJxpUIIWhwp0CFKm2hSt3d9au7uxu1t6Ve2kJLKRT3ACEQiLt7sr47M/d+f9ZnTYBAaUsAtntefrw0sjs7M/eZc577nOcg" alt="شعار الوزارة"></div>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2>بيانات الترقية (2026-2027)</h2>
+    <form id="promoForm">
+      <div class="f">
+        <label>اختر اسم مؤسستك</label>
+        <select id="inst" required>
+            <option value="">-- اختر من القائمة --</option>
+        </select>
       </div>
-      <div class="title-box">
-        <h1>منصة تحيين الترقيات</h1>
-        <div class="sub-title">مفتشية التعليم الابتدائي لدائرة حد الصحاري - المقاطعة الأولى</div>
+      <div class="f">
+        <label>لقب واسم الأستاذ(ة)</label>
+        <input type="text" id="name" placeholder="مثال: بلعدل محمد" required>
       </div>
-      <div class="badge">
-        <div class="badge-inner">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAIAAAAP3aGbAAEAAElEQVR42uxddXwUV9c+946tZjfJxpUIIWhwp0CFKm2hSt3d9au7uxu1t6Ve2kJLKRT3ACEQiLt7sr47M/d+f9ZnTYBAaUsAtntefrw0sjs7M/eZc577nOcg" alt="شعار الوزارة">
-        </div>
+      <div class="f">
+        <label>الدرجة الجديدة</label>
+        <select id="grade" required>
+            <option value="">-- اختر الدرجة --</option>
+        </select>
       </div>
-    </header>
-
-    <!-- قسم إدخال البيانات -->
-    <section class="card">
-      <h2>بيانات الترقية</h2>
-      <form id="promoForm">
-        <div class="f">
-          <label>اختر اسم مؤسستك</label>
-          <select id="inst" required>
-            <option value="">اختر مؤسستك من القائمة...</option>
-          </select>
-        </div>
-        <div class="f">
-          <label>لقب واسم الأستاذ(ة)</label>
-          <input type="text" id="name" placeholder="أدخل اللقب والاسم هنا..." required>
-        </div>
-        <div class="f">
-          <label>الدرجة الجديدة</label>
-          <select id="grade" required>
-            <option value="">اختر الدرجة...</option>
-          </select>
-        </div>
-        <div class="f">
-          <label>تاريخ نفاذها</label>
-          <input type="date" id="date" required>
-        </div>
-        <div class="act-center">
-          <button type="button" class="btn-submit" id="addEntryBtn">أضف البيانات</button>
-        </div>
-      </form>
-      <div id="messageContainer"></div>
-    </section>
-
-    <!-- جدول عرض البيانات -->
-    <section class="data-card">
-      <h2>جدول المعلومات المرسلة</h2>
-      <div class="table-wrap">
-        <table class="data-table" id="resTable">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>المؤسسة</th>
-              <th>لقب واسم الأستاذ</th>
-              <th>الدرجة</th>
-              <th>تاريخ النفاذ</th>
-              <th>إجراءات</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody"></tbody>
-        </table>
+      <div class="f">
+        <label>تاريخ نفاذها</label>
+        <input type="date" id="date" required>
       </div>
-      <div class="act-center">
-        <button type="button" class="btn-export" id="exportToGoogleSheets">إرسال جميع البيانات إلى Google Sheets</button>
+
+      <div class="act">
+        <button type="submit" id="submitBtn" class="btn-submit">إرسال المعلومات لجدول الترقيات</button>
+        <div id="statusMsg" class="msg"></div>
       </div>
-    </section>
+    </form>
+  </section>
 
-    <footer>
-      <div class="credits">برمجة الأستاذ/المفتش: بلعدل محمد</div>
-      <div class="rights">كل الحقوق محفوظة 2026/2027</div>
-    </footer>
-  </div>
+  <section class="data-card">
+    <h2>جدول المعلومات المرسلة (مزامنة فورية)</h2>
+    <div class="table-wrap">
+      <table class="data-table" id="resTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>المؤسسة</th>
+            <th>لقب واسم الأستاذ</th>
+            <th>الدرجة</th>
+            <th>تاريخ النفاذ</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- تظهر البيانات هنا -->
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-  <script>
-    // قائمة المؤسسات
-    var INST = [
-      "ابتدائية طارق بن زياد حدّ الصّحاري", "ابتدائية بن عثمان الشيخ حدّ الصّحاري",
-      "ابتدائية زيوش محمد حدّ الصّحاري", "ابتدائية نوع ب حد الصحاري حدّ الصّحاري",
-      "ابتدائية عكار أحمد حدّ الصّحاري", "ابتدائية المجاهد قويدري خليفة حدّ الصّحاري",
-      "ابتدائية نمط 2 حي 165 مسكن حدّ الصّحاري", "ابتدائية العقيد عميروش بويرة الأحداب",
-      "ابتدائية الشيخ المختار خليفة بويرة الأحداب", "ابتدائية الصقيعة بويرة الأحداب",
-      "ابتدائية اولاد سي عمر بويرة الأحداب", "ابتدائية وادي بوعيشة بويرة الأحداب",
-      "ابتدائية حاسي الدهيم بويرة الأحداب", "ابتدائية المجمع المدرسي الجديد بويرة الأحداب",
-      "ابتدائية وادي بوتشيشة بويرة الأحداب", "ابتدائية حي المخرج الغربي بويرة الأحداب"
-    ];
+  <footer>
+    <div class="credits">برمجة الأستاذ/المفتش: بلعدل محمد</div>
+    <div class="rights">كل الحقوق محفوظة © 2026/2027</div>
+  </footer>
+</div>
 
-    // قائمة الدرجات
-    var GRADE = [];
-    for (var i = 1; i <= 12; i++) {
-      GRADE.push(String(i));
-    }
+<script>
+/* الإعدادات والبيانات */
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyJtMos4XrkQCigof1WrO7kFfM4GTsz6eiLAmF5vd09h1NAZAGNNXobx36pymCiju-gSQ/exec";
 
-    // ملء القائمة المنسدلة
-    var instSel = document.getElementById('inst');
-    INST.forEach(v => instSel.add(new Option(v, v)));
+var INST = ["ابتدائية طارق بن زياد حدّ الصّحاري","ابتدائية بن عثمان الشيخ حدّ الصّحاري","ابتدائية زيوش محمد حدّ الصّحاري","ابتدائية نوع ب حد الصحاري حدّ الصّحاري","ابتدائية عكار أحمد حدّ الصّحاري","ابتدائية المجاهد قويدري خليفة حدّ الصّحاري","ابتدائية نمط 2 حي 165 مسكن حدّ الصّحاري","ابتدائية العقيد عميروش بويرة الأحداب","ابتدائية الشيخ المختار خليفة بويرة الأحداب","ابتدائية الصقيعة بويرة الأحداب","ابتدائية اولاد سي عمر بويرة الأحداب","ابتدائية وادي بوعيشة بويرة الأحداب","ابتدائية حاسي الدهيم بويرة الأحداب","ابتدائية المجمع المدرسي الجديد بويرة الأحداب","ابتدائية وادي بوتشيشة بويرة الأحداب","ابتدائية حي المخرج الغربي بويرة الأحداب"];
 
-    var gradeSel = document.getElementById('grade');
-    GRADE.forEach(v => gradeSel.add(new Option(v, v)));
+/* ملء القوائم */
+var instSel = document.getElementById('inst');
+INST.forEach(v => instSel.add(new Option(v, v)));
 
-    // تخزين البيانات في localStorage
-    function loadEntries() {
-      return JSON.parse(localStorage.getItem('promoEntries')) || [];
-    }
+var gradeSel = document.getElementById('grade');
+for(var i=1; i<=12; i++) gradeSel.add(new Option("الدرجة " + i, i));
 
-    function saveEntries(entries) {
-      localStorage.setItem('promoEntries', JSON.stringify(entries));
-    }
+/* إدارة البيانات */
+var entries = JSON.parse(localStorage.getItem('promo_data')) || [];
+updateTable();
 
-    var entries = loadEntries();
+var form = document.getElementById('promoForm');
+var msg = document.getElementById('statusMsg');
+var btn = document.getElementById('submitBtn');
 
-    // تحديث الجدول
-    function updateTable() {
-      var tbody = document.getElementById('tableBody');
-      tbody.innerHTML = '';
-      entries.forEach((row, index) => {
-        var tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${index + 1}</td>
-          <td>${row[0]}</td>
-          <td>${row[1]}</td>
-          <td>${row[2]}</td>
-          <td>${row[3]}</td>
-          <td><button class="btn-delete" data-index="${index}">حذف</button></td>
-        `;
-        tbody.appendChild(tr);
-      });
+form.onsubmit = function(e) {
+  e.preventDefault();
+  
+  var data = {
+    inst: document.getElementById('inst').value,
+    name: document.getElementById('name').value,
+    grade: document.getElementById('grade').value,
+    date: document.getElementById('date').value,
+    token: "promotion_user"
+  };
 
-      // إضافة ميزة حذف البيانات
-      document.querySelectorAll('.btn-delete').forEach(button => {
-        button.addEventListener('click', function() {
-          var index = parseInt(this.getAttribute('data-index'));
-          entries.splice(index, 1);
-          saveEntries(entries);
-          updateTable();
-          showMessage("تم حذف البيانات بنجاح!", "success");
-        });
-      });
-    }
+  btn.disabled = true;
+  msg.textContent = "جاري الإرسال والمزامنة...";
+  msg.className = "msg";
 
-    // عرض رسالة
-    function showMessage(message, type) {
-      var messageContainer = document.getElementById('messageContainer');
-      messageContainer.innerHTML = `<div class="message ${type}">${message}</div>`;
-      setTimeout(() => {
-        messageContainer.innerHTML = '';
-      }, 5000);
-    }
-
-    // إضافة البيانات الجديدة
-    document.getElementById('addEntryBtn').addEventListener('click', function() {
-      var inst = document.getElementById('inst').value;
-      var name = document.getElementById('name').value;
-      var grade = document.getElementById('grade').value;
-      var date = document.getElementById('date').value;
-
-      if (!inst || !name || !grade || !date) {
-        showMessage("يرجى ملء جميع الحقول!", "error");
-        return;
-      }
-
-      var newEntry = [inst, name, grade, date];
-      entries.push(newEntry);
-      saveEntries(entries);
-      updateTable();
-      showMessage("تم إضافة البيانات بنجاح!", "success");
-      document.getElementById('promoForm').reset();
-    });
-
-    // إرسال البيانات إلى Google Sheets
-    document.getElementById('exportToGoogleSheets').addEventListener('click', async function() {
-      if (entries.length === 0) {
-        showMessage("لا توجد بيانات لإرسالها إلى Google Sheets!", "error");
-        return;
-      }
-
-      const scriptUrl = "https://script.google.com/macros/s/AKfycbyJtMos4XrkQCigof1WrO7kFfM4GTsz6eiLAmF5vd09h1NAZAGNNXobx36pymCiju-gSQ/exec";
-
-      try {
-        // إعداد البيانات المرسلة
-        const payload = entries.map(entry => ({
-          institution: entry[0],
-          name: entry[1],
-          grade: entry[2],
-          date: entry[3]
-        }));
-
-        const response = await fetch(scriptUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload)
-        });
-
-        // استجابة من الخادم
-        showMessage("جاري إرسال البيانات إلى Google Sheets...", "success");
-
-        // تأكد من أن البيانات تم إرسالها بنجاح
-        setTimeout(() => {
-          showMessage("تم إرسال البيانات بنجاح إلى Google Sheets!", "success");
-        }, 2000);
-
-      } catch (error) {
-        showMessage("حدث خطأ أثناء إرسال البيانات: " + error.message, "error");
-        console.error("Error:", error);
-      }
-    });
-
-    // تحديث الجدول عند تحميل الصفحة
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    msg.textContent = "✅ تم الإرسال بنجاح إلى Google Sheets!";
+    msg.className = "msg success";
+    
+    // إضافة للجدول المحلي
+    entries.unshift(data);
+    localStorage.setItem('promo_data', JSON.stringify(entries.slice(0, 20)));
     updateTable();
-  </script>
+    form.reset();
+  })
+  .catch(err => {
+    msg.textContent = "❌ خطأ في الاتصال. حاول مرة أخرى.";
+    msg.className = "msg error";
+    console.error(err);
+  })
+  .finally(() => {
+    btn.disabled = false;
+  });
+};
+
+function updateTable() {
+  var tbody = document.getElementById('tableBody');
+  tbody.innerHTML = "";
+  entries.forEach((r, i) => {
+    var tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${entries.length - i}</td>
+      <td>${r.inst}</td>
+      <td>${r.name}</td>
+      <td>${r.grade}</td>
+      <td>${r.date}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+</script>
 </body>
 </html>
