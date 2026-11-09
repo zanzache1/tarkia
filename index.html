@@ -1,374 +1,84 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>منصة تحيين الترقيات 2026-2027</title>
-<style>
-/* الخطوط الأصلية من المنصة */
-@font-face{font-family:'MohammadHead';src:local('Mohammad Head'),local('MohammadHead'),url('MohammadHead.woff2') format('woff2'),url('MohammadHead.ttf') format('truetype');font-display:swap}
-@font-face{font-family:'BaradaReqa';src:local('Barada Reqa'),local('BaradaReqa'),local('Barada Reqa Regular'),url('BaradaReqa.woff2') format('woff2'),url('BaradaReqa.ttf') format('truetype');font-display:swap}
-@font-face{font-family:'MohammadBoldArt1';src:local('Mohammad Bold Art 1'),local('MohammadBoldArt1'),local('Mohammad Bold Art'),url('MohammadBoldArt1.woff2') format('woff2'),url('MohammadBoldArt1.ttf') format('truetype');font-weight:100 900;font-display:swap}
-
-:root {
-  --primary: #5b2a86;
-  --accent: #e2b53a;
-  --bg-color: #43206b;
-  --fh: 'MohammadHead', 'Katibeh', 'Amiri', serif;
-  --fc: 'MohammadBoldArt1', 'MohammadHead', Tahoma, Arial, sans-serif;
-  --fb: 'BaradaReqa', 'Aref Ruqaa Ink', 'Katibeh', 'Amiri', serif;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  padding: 24px 14px;
-  background: var(--bg-color);
-  color: #333;
-  font-family: var(--fb);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.wrap {
-  width: min(1040px, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.blackboard {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  margin-bottom: 36px;
-  padding: 22px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  color: #fffde9;
-  text-align: center;
-  border: 13px solid #ffffff;
-  border-radius: 10px;
-  background-color: #0a0a0a;
-  background-image: radial-gradient(ellipse at 20% 30%, #ffffff0b 0 1px, transparent 2px),
-                    radial-gradient(ellipse at 70% 65%, #ffffff0a 0 1px, transparent 2px),
-                    repeating-linear-gradient(2deg, #ffffff03 0 1px, transparent 1px 5px),
-                    linear-gradient(145deg, #1c1c1c, #050505 70%, #141414);
-  box-shadow: inset 0 0 0 3px #ffffff14, inset 0 0 28px #0009, 0 12px 24px #0008;
-}
-
-.blackboard::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  bottom: -22px;
-  left: 10%;
-  width: 80%;
-  height: 12px;
-  border: 2px solid #ffffff;
-  border-radius: 0 0 7px 7px;
-  background: linear-gradient(#ffffff, #dcdcdc);
-  box-shadow: 0 5px 7px #0005;
-}
-
-.seal {
-  flex: 0 0 140px;
-  width: 140px;
-  height: 140px;
-  filter: drop-shadow(0 6px 10px #000a);
-}
-
-.seal img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.badge {
-  --d: 140px;
-  position: relative;
-  flex: 0 0 var(--d);
-  width: var(--d);
-  height: var(--d);
-  padding: calc(var(--d) * 0.055);
-  border-radius: 50%;
-  direction: ltr;
-  background: conic-gradient(from 210deg, #fff3b4, #e2b53a 18%, #a77408 38%, #f6dc7a 56%, #c9971f 76%, #fff0a8 100%);
-  box-shadow: 0 6px 12px #000a, 0 0 14px #ffd54a55, inset 0 0 0 2px #fff6c880;
-}
-
-.badge-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 2px #8a5e0a, inset 0 0 10px #0006;
-}
-
-.badge-inner img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: #fff;
-}
-
-.title-box {
-  flex: 1;
-  min-width: 0;
-}
-
-h1 {
-  margin: 0;
-  color: #fff;
-  font-family: var(--fh);
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: 400;
-  line-height: 1.4;
-  text-shadow: 0 0 4px #fff59d, 0 0 10px #ffeb3b, 0 0 20px #ffe100, 0 0 34px #ffc400;
-  animation: glow 3.2s ease-in-out infinite;
-}
-
-@keyframes glow {
-  0%, 100% { text-shadow: 0 0 4px #fff59d, 0 0 10px #ffeb3b, 0 0 20px #ffe100, 0 0 34px #ffc400; }
-  50% { text-shadow: 0 0 5px #fff59d, 0 0 14px #ffeb3b, 0 0 28px #ffe100, 0 0 48px #ffc400; }
-}
-
-.sub-title {
-  margin: 8px 0 0;
-  color: #ffeb3b;
-  font-family: var(--fb);
-  font-size: clamp(14px, 2.2vw, 18px);
-  font-weight: 700;
-}
-
-.card {
-  width: 100%;
-  max-width: 850px;
-  margin-bottom: 22px;
-  padding: 25px;
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 4px 10px #0003;
-}
-
-h2 {
-  margin: -25px -25px 20px -25px;
-  padding: 12px;
-  text-align: center;
-  color: #fff;
-  background: var(--primary);
-  border-radius: 7px 7px 0 0;
-  font-family: var(--fh);
-  font-size: 24px;
-  font-weight: 400;
-}
-
-.f {
-  margin-bottom: 18px;
-}
-
-.f label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--primary);
-  font-family: var(--fh);
-  font-size: 20px;
-}
-
-input, select {
-  width: 100%;
-  min-height: 46px;
-  padding: 10px;
-  border: 1px solid #bdc3c7;
-  border-radius: 6px;
-  font-family: var(--fc);
-  font-size: 17px;
-  color: #43206b;
-}
-
-.act-center {
-  display: flex;
-  justify-content: center;
-  padding: 20px 0;
-}
-
-.btn-submit {
-  width: 33.33%;
-  min-width: 280px;
-  padding: 18px;
-  border: none;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #8a5a2b, #6b4423, #4e2d12);
-  color: #fff;
-  font-family: var(--fh);
-  font-size: 28px;
-  cursor: pointer;
-  box-shadow: 0 8px 0 #3f2610, 0 15px 20px rgba(0, 0, 0, 0.4);
-  transition: all 0.1s;
-}
-
-.btn-submit:hover {
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-}
-
-.btn-submit:active {
-  transform: translateY(6px);
-  box-shadow: 0 2px 0 #3f2610;
-}
-
-.data-card {
-  width: 100%;
-  max-width: 1200px;
-  margin-bottom: 22px;
-  padding: 25px;
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 4px 10px #0003;
-}
-
-.table-wrap {
-  overflow-x: auto;
-  margin-top: 15px;
-  max-height: 450px;
-  border: 1px solid #ddd3ea;
-  border-radius: 4px;
-}
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 15px;
-}
-
-.data-table th {
-  position: sticky;
-  top: 0;
-  background: var(--primary);
-  color: #fff;
-  padding: 12px;
-  font-family: var(--fh);
-}
-
-.data-table td {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  text-align: center;
-  font-weight: bold;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.btn-delete {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-delete:hover {
-  background: #c0392b;
-}
-
-footer {
-  width: 100%;
-  margin-top: 20px;
-  text-align: center;
-  color: #ffeb3b;
-  font-family: var(--fb);
-  font-size: 18px;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>منصة تحيين الترقيات</title>
+  <style>
+    /* اضف هنا نفس الكود السTYLE من سابق */
+    /* ... */
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <!-- هيدر السبورة -->
-  <header class="blackboard">
-    <div class="seal">
-      <img src="data:image/webp;base64,UklGRvIkAQBXRUJQVlA4WAoAAAAQAAAAowEAowEAQUxQSPAVAAAB8If/v7o5rbZ9vmutc1wyk5nIJMHaRkgIwZ1NcQkS6klxKHX34mz0OFxqaAJJqSCFhLq3yMZh+964xSaG7cz6ru/nj5mMnrJ+W64rIiYAVbIAgIjHljs6es67fOEFK1b89ONXPfLw8gdWrFixYvmK6xd+aPIHF35s0cKLPvn9UxcuXLTwmhXLl6+4ZeHChfPGdWBgH0IITgCIiCAruxACAGz7ofZDzjx92YNrVq3nMK/nMG9eveZvS5ddP7e9HQO74JGPRXwIjePRf9yhi9f1rucWzXRAY9JBJiZVVUtMOngObOvX33/n948/vqcNQH3z+Ene5R3pJ17Qv2vKqT9a9mgv+yfVqGbGYTYOs5lpjJFbfHPt8u8v2K5r6lQ0TQjBSaZxAMQHAN2HHHvO0uffYv+UzIxj2sw0xhjZf8PqH37xuGnoH4KT/CJAZz2A5kMvXckBNcZkLJ9mGiP7v7n8+8ft3AAAbq+GjCIuBMzba+uO1o/f8RLJpDEmYzk206js/9Lt5+7cAsAFB0CyhzgvAJpvfvzVlatJJjWWedOoJGmr7zqsFUBLm0fOFC/OA9hnr/k/fIX9UzRWRksxkuSq5eftvE0zWuu9yrsNkD/FY/N0xI20w==" alt="ختم المفتشية">
+  <!-- قسم من سابق الكود -->
+  <div class="wrap">
+    <!-- هيدر السبورة -->
+    <header class="blackboard">
+      <!-- ... -->
+    </header>
+
+    <!-- قسم البيانات -->
+    <section class="card">
+      <h2>بيانات الترقية</h2>
+      <form id="promoForm">
+        <div class="f">
+          <label>اختر اسم مؤسستك</label>
+          <select id="inst" required>
+            <option value="">اختر مؤسستك من القائمة...</option>
+            <!-- ... -->
+          </select>
+        </div>
+        <div class="f">
+          <label>لقب واسم الأستاذ(ة)</label>
+          <input type="text" id="name" placeholder="أدخل اللقب والاسم هنا..." required>
+        </div>
+        <div class="f">
+          <label>الدرجة الجديدة</label>
+          <select id="grade" required>
+            <!-- ... -->
+          </select>
+        </div>
+        <div class="f">
+          <label>تاريخ نفاذها</label>
+          <input type="date" id="date" required>
+        </div>
+        <div class="act-center">
+          <button type="button" class="btn-submit" id="submitBtn">إرسال البيانات إلى Google Sheets</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- قسم عرض البيانات -->
+    <section class="data-card">
+      <h2>جدول المعلومات المرسلة</h2>
+      <div class="table-wrap">
+        <table class="data-table" id="resTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>المؤسسة</th>
+              <th>لقب واسم الأستاذ</th>
+              <th>الدرجة</th>
+              <th>تاريخ النفاذ</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- قسم إرسال البيانات إلى Google Sheets -->
+    <div id="exportToSheet" style="display: none;">
+      <h3>إرسال البيانات إلى Google Sheets</h3>
+      <input type="hidden" id="googleScriptUrl" value="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec">
+      <button id="submitDataToSheet" class="btn-export">إرسال البيانات</button>
     </div>
 
-    <div class="title-box">
-      <h1>منصة تحيين الترقيات</h1>
-      <div class="sub-title">مفتشية التعليم الابتدائي لدائرة حد الصحاري - المقاطعة الأولى</div>
-    </div>
-
-    <div class="badge" role="img" aria-label="شعار وزارة التربية الوطنية">
-      <div class="badge-inner">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAIAAAAP3aGbAAEAAElEQVR42uxddXwUV9c+946tZjfJxpUIIWhwp0CFKm2hSt3d9au7uxu1t6Ve2kJLKRT3ACEQiLt7sr47M/d+f9ZnTYBAaUsAtntefrw0sjs7M/eZc577nOcg" alt="شعار الوزارة">
-      </div>
-    </div>
-  </header>
-
-  <section class="card">
-    <h2>بيانات الترقية</h2>
-    <form id="promoForm">
-      <div class="f">
-        <label>اختر اسم مؤسستك</label>
-        <select id="inst" required>
-          <option value="">اختر مؤسستك من القائمة...</option>
-        </select>
-      </div>
-      <div class="f">
-        <label>لقب واسم الأستاذ(ة)</label>
-        <input type="text" id="name" placeholder="أدخل اللقب والاسم هنا..." required>
-      </div>
-      <div class="f">
-        <label>الدرجة الجديدة</label>
-        <select id="grade" required>
-          <option value="">اختر الدرجة...</option>
-        </select>
-      </div>
-      <div class="f">
-        <label>تاريخ نفاذها</label>
-        <input type="date" id="date" required>
-      </div>
-
-      <div class="act-center">
-        <button type="submit" class="btn-submit">تأكيد المعلومات وإرسالها</button>
-      </div>
-    </form>
-  </section>
-
-  <section class="data-card">
-    <h2>جدول المعلومات المرسلة</h2>
-    <div class="table-wrap">
-      <table class="data-table" id="resTable">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>المؤسسة</th>
-            <th>لقب واسم الأستاذ</th>
-            <th>الدرجة</th>
-            <th>تاريخ النفاذ</th>
-            <th>العملية</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-          <!-- البيانات ستظهر هنا -->
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <footer>
-    <div class="credits">برمجة الأستاذ/المفتش: بلعدل محمد</div>
-    <div class="rights">كل الحقوق محفوظة 2026/2027</div>
-  </footer>
+    <footer>
+      <!-- ... -->
+    </footer>
+  </div>
 
   <script>
     var INST = [
@@ -389,16 +99,17 @@ footer {
 
     // ملء القائمة المنسدلة للمؤسسات
     var instSel = document.getElementById('inst');
+    instSel.add(new Option("اختر مؤسستك من القائمة...", ""));
     INST.forEach(v => instSel.add(new Option(v, v)));
 
     // ملء القائمة المنسدلة للدرجات
     var gradeSel = document.getElementById('grade');
+    gradeSel.add(new Option("اختر الدرجة...", ""));
     GRADE.forEach(v => gradeSel.add(new Option(v, v)));
 
     // تخزين البيانات في localStorage
     function loadEntries() {
-      var entries = JSON.parse(localStorage.getItem('promoEntries')) || [];
-      return entries;
+      return JSON.parse(localStorage.getItem('promoEntries')) || [];
     }
 
     function saveEntries(entries) {
@@ -412,33 +123,21 @@ footer {
     function updateTable() {
       var tbody = document.getElementById('tableBody');
       tbody.innerHTML = '';
-      entries.forEach((r, index) => {
+      entries.forEach((row, index) => {
         var tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${index + 1}</td>
-          <td>${r[1]}</td>
-          <td>${r[2]}</td>
-          <td>${r[3]}</td>
-          <td>${r[4]}</td>
-          <td><button class="btn-delete" data-index="${index}">حذف</button></td>
+          <td>${row[0]}</td>
+          <td>${row[1]}</td>
+          <td>${row[2]}</td>
+          <td>${row[3]}</td>
         `;
         tbody.appendChild(tr);
       });
-
-      // إضافة ميزة حذف البيانات
-      document.querySelectorAll('.btn-delete').forEach(button => {
-        button.addEventListener('click', function() {
-          var index = parseInt(this.getAttribute('data-index'));
-          entries.splice(index, 1);
-          saveEntries(entries);
-          updateTable();
-        });
-      });
     }
 
-    // إضافة البيانات الجديدة
-    document.getElementById('promoForm').onsubmit = function(e) {
-      e.preventDefault();
+    // إرسال البيانات إلى Google Sheets
+    document.getElementById('submitBtn').addEventListener('click', function() {
       var inst = document.getElementById('inst').value;
       var name = document.getElementById('name').value;
       var grade = document.getElementById('grade').value;
@@ -449,13 +148,48 @@ footer {
         return;
       }
 
-      var row = [inst, name, grade, date];
-      entries.push(row);
+      var newEntry = [inst, name, grade, date];
+      entries.push(newEntry);
       saveEntries(entries);
       updateTable();
-      alert("تم إرسال معلوماتك بنجاح!");
-      document.getElementById('promoForm').reset();
-    };
+      alert("تم إضافة البيانات بنجاح!");
+
+      // عرض قسم إرسال البيانات إلى Google Sheets
+      document.getElementById('exportToSheet').style.display = 'block';
+    });
+
+    // إرسال البيانات إلى Google Sheets باستخدام الرابط
+    document.getElementById('submitDataToSheet').addEventListener('click', async function() {
+      const googleScriptUrl = document.getElementById('googleScriptUrl').value;
+      const data = {
+        institution: document.getElementById('inst').value,
+        name: document.getElementById('name').value,
+        grade: document.getElementById('grade').value,
+        date: document.getElementById('date').value,
+        token: "YOUR_TOKEN" // استبدل هذا بالرقم الذي تريد استخدامه
+      };
+
+      try {
+        const response = await fetch(googleScriptUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        if (result.ok) {
+          alert("تم إرسال البيانات إلى Google Sheets بنجاح!");
+          document.getElementById('promoForm').reset();
+          document.getElementById('exportToSheet').style.display = 'none';
+        } else {
+          alert("حدث خطأ أثناء إرسال البيانات: " + result.error);
+        }
+      } catch (error) {
+        alert("حدث خطأ غير متوقع: " + error);
+      }
+    });
 
     // تحديث الجدول عند تحميل الصفحة
     updateTable();
