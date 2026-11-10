@@ -245,7 +245,7 @@ footer{color:#806044}
   </section>
 
   <!-- جدول عرض النتائج -->
-  <section class="card">
+  <section class="card" id="resultsCard" hidden>
     <h2>آخر المعلومات المرسلة</h2>
     <div class="table-wrap">
       <table class="data-table" id="resTable">
@@ -314,7 +314,7 @@ form.onsubmit = function(e) {
 
     entries.unshift(data);
     localStorage.setItem('promo_data', JSON.stringify(entries.slice(0, 20)));
-    updateTable();
+    updateTable(true);
     form.reset();
   })
   .catch(err => {
@@ -328,7 +328,7 @@ form.onsubmit = function(e) {
 
 function updateTable() {
   var resultsCard = document.getElementById('resultsCard');
-  if (resultsCard && entries.length) resultsCard.hidden = false;
+  if (resultsCard && showResults) resultsCard.hidden = false;
   var tbody = document.getElementById('tableBody');
   tbody.innerHTML = "";
   entries.forEach((r, i) => {
@@ -346,5 +346,7 @@ function updateTable() {
 </script>
 </body>
 </html>
+
+
 
 
