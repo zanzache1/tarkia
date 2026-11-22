@@ -292,38 +292,41 @@ form.onsubmit = function(e) {
 
   var data = {
     inst: document.getElementById('inst').value,
-    name: document.getElementById('name').value,
+    name: document.getElementById('name').value.trim(),
     grade: document.getElementById('grade').value,
     date: document.getElementById('date').value,
-    token: "promotion_user"
+    token: 'promotion_user'
   };
 
   btn.disabled = true;
-  msg.textContent = "جاري الإرسال والمزامنة...";
-  msg.className = "msg";
+  msg.textContent = 'جاري الإرسال والحفظ...';
+  msg.className = 'msg';
 
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    msg.textContent = "✅ تم الإرسال بنجاح إلى Google Sheets!";
-    msg.className = "msg success";
+  google.script.run
+    .withSuccessHandler(function(response) {
+      btn.disabled = false;
 
-    entries.unshift(data);
-    localStorage.setItem('promo_data', JSON.stringify(entries.slice(0, 20)));
-    updateTable(true);
-    form.reset();
-  })
-  .catch(err => {
-    msg.textContent = "❌ خطأ في الاتصال. حاول مرة أخرى.";
-    msg.className = "msg error";
-  })
-  .finally(() => {
-    btn.disabled = false;
-  });
+      if (!response || response.result !== 'success') {
+        msg.textContent = '❌ لم يتم تأكيد حفظ البيانات.';
+        msg.className = 'msg error';
+        return;
+      }
+
+      msg.textContent = '✅ تم حفظ البيانات في Google Sheets.';
+      msg.className = 'msg success';
+
+      entries.unshift(data);
+      localStorage.setItem('promo_data', JSON.stringify(entries.slice(0, 20)));
+      updateTable();
+      form.reset();
+    })
+    .withFailureHandler(function(error) {
+      btn.disabled = false;
+      msg.textContent = '❌ تعذر الحفظ: ' +
+        (error && error.message ? error.message : 'تحقق من الاتصال والصلاحيات.');
+      msg.className = 'msg error';
+    })
+    .savePromotion(data);
 };
 
 function updateTable() {
